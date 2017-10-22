@@ -1,0 +1,14 @@
+[
+  {
+    "modid": "phosphorus",
+    "name": "Phosphorus",
+    "description": "Implementing basic capabilities, the elytra way.",
+    "version": "1.12.1-0.1.0",
+    "mcversion": "1.12.1",
+    "url": "https://github.com/elytra/Phosphorus",
+    "authorList": ["CalmBit", "Falkreon"],
+    "credits": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
