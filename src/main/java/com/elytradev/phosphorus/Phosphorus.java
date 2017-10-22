@@ -27,6 +27,9 @@
 
 package com.elytradev.phosphorus;
 
+import com.elytradev.phosphorus.capabilities.rotary.CapabilityRotaryPowerConsumer;
+import com.elytradev.phosphorus.capabilities.rotary.CapabilityRotaryPowerSupply;
+import com.elytradev.phosphorus.capabilities.temperature.CapabilityHeatStorage;
 import com.elytradev.phosphorus.capabilities.wrench.CapabilityConfigurable;
 import com.elytradev.phosphorus.capabilities.wrench.CapabilityDismantleable;
 import com.elytradev.phosphorus.proxy.CommonProxy;
@@ -64,6 +67,9 @@ public final class Phosphorus {
         PROXY.init();
 		CapabilityDismantleable.register();
 		CapabilityConfigurable.register();
+		CapabilityHeatStorage.register();
+		CapabilityRotaryPowerSupply.register();
+		CapabilityRotaryPowerConsumer.register();
 	}
 
     @Mod.EventHandler
