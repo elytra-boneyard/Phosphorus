@@ -25,10 +25,10 @@
  *
  */
 
-package com.elytradev.phosphorus.capabilities.wrench;
+package com.elytradev.phosphorus.capabilities;
 
-import com.elytradev.phosphorus.api.wrench.BlankDismantleable;
-import com.elytradev.phosphorus.api.wrench.IDismantleable;
+import com.elytradev.phosphorus.api.impl.BlankDismantleable;
+import com.elytradev.phosphorus.api.IDismantleable;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;

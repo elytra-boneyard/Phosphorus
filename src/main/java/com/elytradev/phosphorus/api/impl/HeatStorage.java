@@ -22,8 +22,9 @@
  * SOFTWARE.
  */
 
-package com.elytradev.phosphorus.api.temperature;
+package com.elytradev.phosphorus.api.impl;
 
+import com.elytradev.phosphorus.api.IHeatStorage;
 import com.google.common.primitives.Ints;
 import org.apache.commons.lang3.Validate;
 

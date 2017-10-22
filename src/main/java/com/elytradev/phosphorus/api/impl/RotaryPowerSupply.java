@@ -22,7 +22,9 @@
  * SOFTWARE.
  */
 
-package com.elytradev.phosphorus.api.rotary;
+package com.elytradev.phosphorus.api.impl;
+
+import com.elytradev.phosphorus.api.IRotaryPowerSupply;
 
 import java.util.ArrayList;
 

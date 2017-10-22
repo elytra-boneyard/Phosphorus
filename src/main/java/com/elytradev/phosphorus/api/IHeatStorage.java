@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.elytradev.phosphorus.api.temperature;
+package com.elytradev.phosphorus.api;
 
 /**
  * Represents a device with some amount of specific heat. One "H" (H is for enthalpy, but you can call it heat to make

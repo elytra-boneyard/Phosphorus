@@ -25,10 +25,17 @@
  *
  */
 
-package com.elytradev.phosphorus.api.wrench;
+package com.elytradev.phosphorus.api;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumHand;
 
-public interface IDismantleable {
-	void dismantle(EntityPlayer player);
+/**
+ * Provides a capability by which an object can be configured.
+ */
+public interface IConfigurable {
+	/**
+	 * Configure an object, presumably using a wrench.
+	 */
+	void configure(EntityPlayer player, float hitX, float hitY, float hitZ, EnumHand hand);
 }

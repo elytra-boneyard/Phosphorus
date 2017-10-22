@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.elytradev.phosphorus.api.rotary;
+package com.elytradev.phosphorus.api;
 
 /**
  * Describes a device that has some kind of axle that can rotate, and does something important when that axle is rotated.

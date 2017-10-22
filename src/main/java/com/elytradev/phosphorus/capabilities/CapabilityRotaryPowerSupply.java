@@ -25,10 +25,10 @@
  *
  */
 
-package com.elytradev.phosphorus.capabilities.rotary;
+package com.elytradev.phosphorus.capabilities;
 
-import com.elytradev.phosphorus.api.rotary.IRotaryPowerSupply;
-import com.elytradev.phosphorus.api.rotary.RotaryPowerSupply;
+import com.elytradev.phosphorus.api.IRotaryPowerSupply;
+import com.elytradev.phosphorus.api.impl.RotaryPowerSupply;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;

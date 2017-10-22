@@ -2,8 +2,8 @@
  *  The MIT License (MIT)
  *
  *  Copyright (c) 2017:
- *      Ethan Brooks (CalmBit),
- *      and contributors
+ *	  Ethan Brooks (CalmBit),
+ *	  and contributors
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy of
  *  this software and associated documentation files (the "Software"), to deal in
@@ -27,11 +27,11 @@
 
 package com.elytradev.phosphorus;
 
-import com.elytradev.phosphorus.capabilities.rotary.CapabilityRotaryPowerConsumer;
-import com.elytradev.phosphorus.capabilities.rotary.CapabilityRotaryPowerSupply;
-import com.elytradev.phosphorus.capabilities.temperature.CapabilityHeatStorage;
-import com.elytradev.phosphorus.capabilities.wrench.CapabilityConfigurable;
-import com.elytradev.phosphorus.capabilities.wrench.CapabilityDismantleable;
+import com.elytradev.phosphorus.capabilities.CapabilityRotaryPowerConsumer;
+import com.elytradev.phosphorus.capabilities.CapabilityRotaryPowerSupply;
+import com.elytradev.phosphorus.capabilities.CapabilityHeatStorage;
+import com.elytradev.phosphorus.capabilities.CapabilityConfigurable;
+import com.elytradev.phosphorus.capabilities.CapabilityDismantleable;
 import com.elytradev.phosphorus.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -42,29 +42,29 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(
-        modid = Phosphorus.MOD_ID,
-        name = Phosphorus.NAME,
-        version = Phosphorus.VERSION)
+		modid = Phosphorus.MOD_ID,
+		name = Phosphorus.NAME,
+		version = Phosphorus.VERSION)
 @Mod.EventBusSubscriber
 public final class Phosphorus {
 
-    public static final String MOD_ID = "phorphorus";
-    public static final String NAME = "Phosphorus";
-    public static final String VERSION = "1.12-0.1.0";
+	public static final String MOD_ID = "phorphorus";
+	public static final String NAME = "Phosphorus";
+	public static final String VERSION = "1.12-0.1.0";
 
-    public static final Logger LOG = LogManager.getLogger(Phosphorus.NAME);
+	public static final Logger LOG = LogManager.getLogger(Phosphorus.NAME);
 
-    @SidedProxy(
-            clientSide = "com.elytradev.phosphorus.proxy.ClientProxy",
-            serverSide = "com.elytradev.phosphorus.proxy.CommonProxy")
-    public static CommonProxy PROXY;
+	@SidedProxy(
+			clientSide = "com.elytradev.phosphorus.proxy.ClientProxy",
+			serverSide = "com.elytradev.phosphorus.proxy.CommonProxy")
+	public static CommonProxy PROXY;
 
-    @Mod.Instance
-    public static Phosphorus INSTANCE;
+	@Mod.Instance
+	public static Phosphorus INSTANCE;
 
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        PROXY.init();
+	@Mod.EventHandler
+	public void preInit(FMLPreInitializationEvent event) {
+		PROXY.init();
 		CapabilityDismantleable.register();
 		CapabilityConfigurable.register();
 		CapabilityHeatStorage.register();
@@ -72,14 +72,14 @@ public final class Phosphorus {
 		CapabilityRotaryPowerConsumer.register();
 	}
 
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
-    }
+	@Mod.EventHandler
+	public void init(FMLInitializationEvent event) {
+	}
 
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
+	@Mod.EventHandler
+	public void postInit(FMLPostInitializationEvent event) {
 
-    }
+	}
 
 
 

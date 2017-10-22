@@ -25,12 +25,12 @@
  *
  */
 
-package com.elytradev.phosphorus.capabilities.rotary;
+package com.elytradev.phosphorus.capabilities;
 
-import com.elytradev.phosphorus.api.rotary.IRotaryPowerConsumer;
-import com.elytradev.phosphorus.api.rotary.RotaryPowerConsumer;
+import com.elytradev.phosphorus.api.impl.HeatStorage;
+import com.elytradev.phosphorus.api.IHeatStorage;
 import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
@@ -38,36 +38,25 @@ import net.minecraftforge.common.capabilities.CapabilityManager;
 
 import javax.annotation.Nullable;
 
-public class CapabilityRotaryPowerConsumer {
+public class CapabilityHeatStorage {
 
-	@CapabilityInject(IRotaryPowerConsumer.class)
-	public static Capability<IRotaryPowerConsumer> ROTARY_POWER_CONSUMER_CAPABILITY = null;
+	@CapabilityInject(IHeatStorage.class)
+	public static Capability<IHeatStorage> HEAT_STORAGE_CAPABILITY = null;
 
 	// Serializer code grafted from Thermionics, credit to @Falkreon
 	// Check THERMIONICS-LICENSE for more information.
 	public static void register() {
-		CapabilityManager.INSTANCE.register(IRotaryPowerConsumer.class, new Capability.IStorage<IRotaryPowerConsumer>() {
+		CapabilityManager.INSTANCE.register(IHeatStorage.class, new Capability.IStorage<IHeatStorage>() {
 			@Nullable
 			@Override
-			public NBTBase writeNBT(Capability<IRotaryPowerConsumer> capability, IRotaryPowerConsumer instance, EnumFacing side) {
-				NBTTagCompound tag = new NBTTagCompound();
-				tag.setFloat("torque", instance.getRequiredTorque());
-				if (instance instanceof RotaryPowerConsumer) {
-					tag.setFloat("buffer", ((RotaryPowerConsumer)instance).getBufferedRevolutions());
-				}
-
-				return tag;
+			public NBTBase writeNBT(Capability<IHeatStorage> capability, IHeatStorage instance, EnumFacing side) {
+				return new NBTTagInt(instance.getHeatStored());
 			}
 
 			@Override
-			public void readNBT(Capability<IRotaryPowerConsumer> capability, IRotaryPowerConsumer instance, EnumFacing side, NBTBase nbt) {
-				if (nbt instanceof NBTTagCompound && instance instanceof RotaryPowerConsumer) {
-					NBTTagCompound tag = (NBTTagCompound)nbt;
-					RotaryPowerConsumer consumer = (RotaryPowerConsumer)instance;
-					if (tag.hasKey("torque")) consumer.setRequiredTorque(tag.getFloat("torque"));
-					if (tag.hasKey("buffer")) consumer.setBufferedRevolutions(tag.getFloat("buffer"));
-				}
+			public void readNBT(Capability<IHeatStorage> capability, IHeatStorage instance, EnumFacing side, NBTBase nbt) {
+				instance.receiveHeat(((NBTTagInt)nbt).getInt(), false);
 			}
-		}, RotaryPowerConsumer::new);
+		}, HeatStorage::new);
 	}
 }

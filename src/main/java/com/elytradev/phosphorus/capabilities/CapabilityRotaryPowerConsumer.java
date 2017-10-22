@@ -25,11 +25,12 @@
  *
  */
 
-package com.elytradev.phosphorus.capabilities.wrench;
+package com.elytradev.phosphorus.capabilities;
 
-import com.elytradev.phosphorus.api.wrench.BlankConfigurable;
-import com.elytradev.phosphorus.api.wrench.IConfigurable;
+import com.elytradev.phosphorus.api.IRotaryPowerConsumer;
+import com.elytradev.phosphorus.api.impl.RotaryPowerConsumer;
 import net.minecraft.nbt.NBTBase;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
@@ -37,22 +38,36 @@ import net.minecraftforge.common.capabilities.CapabilityManager;
 
 import javax.annotation.Nullable;
 
-public class CapabilityConfigurable {
+public class CapabilityRotaryPowerConsumer {
 
-	@CapabilityInject(IConfigurable.class)
-	public static Capability<IConfigurable> CONFIGURABLE_CAPABILITY = null;
+	@CapabilityInject(IRotaryPowerConsumer.class)
+	public static Capability<IRotaryPowerConsumer> ROTARY_POWER_CONSUMER_CAPABILITY = null;
 
+	// Serializer code grafted from Thermionics, credit to @Falkreon
+	// Check THERMIONICS-LICENSE for more information.
 	public static void register() {
-		CapabilityManager.INSTANCE.register(IConfigurable.class, new Capability.IStorage<IConfigurable>() {
+		CapabilityManager.INSTANCE.register(IRotaryPowerConsumer.class, new Capability.IStorage<IRotaryPowerConsumer>() {
 			@Nullable
 			@Override
-			public NBTBase writeNBT(Capability<IConfigurable> capability, IConfigurable instance, EnumFacing side) {
-				return null;
+			public NBTBase writeNBT(Capability<IRotaryPowerConsumer> capability, IRotaryPowerConsumer instance, EnumFacing side) {
+				NBTTagCompound tag = new NBTTagCompound();
+				tag.setFloat("torque", instance.getRequiredTorque());
+				if (instance instanceof RotaryPowerConsumer) {
+					tag.setFloat("buffer", ((RotaryPowerConsumer)instance).getBufferedRevolutions());
+				}
+
+				return tag;
 			}
 
 			@Override
-			public void readNBT(Capability<IConfigurable> capability, IConfigurable instance, EnumFacing side, NBTBase nbt) {
+			public void readNBT(Capability<IRotaryPowerConsumer> capability, IRotaryPowerConsumer instance, EnumFacing side, NBTBase nbt) {
+				if (nbt instanceof NBTTagCompound && instance instanceof RotaryPowerConsumer) {
+					NBTTagCompound tag = (NBTTagCompound)nbt;
+					RotaryPowerConsumer consumer = (RotaryPowerConsumer)instance;
+					if (tag.hasKey("torque")) consumer.setRequiredTorque(tag.getFloat("torque"));
+					if (tag.hasKey("buffer")) consumer.setBufferedRevolutions(tag.getFloat("buffer"));
+				}
 			}
-		},  BlankConfigurable::new);
+		}, RotaryPowerConsumer::new);
 	}
 }

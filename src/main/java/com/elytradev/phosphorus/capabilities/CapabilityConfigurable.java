@@ -25,17 +25,34 @@
  *
  */
 
-package com.elytradev.phosphorus.api.wrench;
+package com.elytradev.phosphorus.capabilities;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumHand;
+import com.elytradev.phosphorus.api.impl.BlankConfigurable;
+import com.elytradev.phosphorus.api.IConfigurable;
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.util.EnumFacing;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.CapabilityInject;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 
-/**
- * Provides a capability by which an object can be configured.
- */
-public interface IConfigurable {
-	/**
-	 * Configure an object, presumably using a wrench.
-	 */
-	void configure(EntityPlayer player, float hitX, float hitY, float hitZ, EnumHand hand);
+import javax.annotation.Nullable;
+
+public class CapabilityConfigurable {
+
+	@CapabilityInject(IConfigurable.class)
+	public static Capability<IConfigurable> CONFIGURABLE_CAPABILITY = null;
+
+	public static void register() {
+		CapabilityManager.INSTANCE.register(IConfigurable.class, new Capability.IStorage<IConfigurable>() {
+			@Nullable
+			@Override
+			public NBTBase writeNBT(Capability<IConfigurable> capability, IConfigurable instance, EnumFacing side) {
+				return null;
+			}
+
+			@Override
+			public void readNBT(Capability<IConfigurable> capability, IConfigurable instance, EnumFacing side, NBTBase nbt) {
+			}
+		},  BlankConfigurable::new);
+	}
 }
