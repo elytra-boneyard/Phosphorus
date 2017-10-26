@@ -14,4 +14,4 @@ more robust experience.
 ## Credits
 * [BoundaryBreaker](https://github.com/Boundarybreaker) for the Phosphorus logo
 * [Falkreon](https://github.com/Falkreon) for some of the capabilities (see THERMIONICS-LICENSE)
-* [Unascribed](https://github.com/unascribed) for the name and guidance.
+* [unascribed](https://github.com/unascribed) for the name and guidance.

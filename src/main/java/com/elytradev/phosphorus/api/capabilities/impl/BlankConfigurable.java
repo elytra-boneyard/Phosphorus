@@ -25,10 +25,23 @@
  *
  */
 
-package com.elytradev.phosphorus.api;
+package com.elytradev.phosphorus.api.capabilities.impl;
 
+import com.elytradev.phosphorus.api.capabilities.IConfigurable;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumHand;
 
-public interface IDismantleable {
-	void dismantle(EntityPlayer player);
+/**
+ * Literally does nothing. Don't use this.
+ */
+public class BlankConfigurable implements IConfigurable {
+	public BlankConfigurable()
+	{
+
+	}
+
+	@Override
+	public void configure(EntityPlayer player, float hitX, float hitY, float hitZ, EnumHand hand) {
+
+	}
 }

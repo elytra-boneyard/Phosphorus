@@ -25,17 +25,22 @@
  *
  */
 
-package com.elytradev.phosphorus.api;
+package com.elytradev.phosphorus.api.capabilities.impl;
 
+import com.elytradev.phosphorus.api.capabilities.IDismantleable;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumHand;
 
 /**
- * Provides a capability by which an object can be configured.
+ * Literally does nothing. Don't use this.
  */
-public interface IConfigurable {
-	/**
-	 * Configure an object, presumably using a wrench.
-	 */
-	void configure(EntityPlayer player, float hitX, float hitY, float hitZ, EnumHand hand);
+public class BlankDismantleable implements IDismantleable {
+	public BlankDismantleable()
+	{
+
+	}
+
+	@Override
+	public void dismantle(EntityPlayer player) {
+
+	}
 }

@@ -22,9 +22,9 @@
  * SOFTWARE.
  */
 
-package com.elytradev.phosphorus.api.impl;
+package com.elytradev.phosphorus.api.capabilities.impl;
 
-import com.elytradev.phosphorus.api.IHeatStorage;
+import com.elytradev.phosphorus.api.capabilities.IHeatStorage;
 import com.google.common.primitives.Ints;
 import org.apache.commons.lang3.Validate;
 

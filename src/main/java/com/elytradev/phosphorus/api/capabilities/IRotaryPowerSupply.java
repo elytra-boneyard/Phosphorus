@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.elytradev.phosphorus.api;
+package com.elytradev.phosphorus.api.capabilities;
 /**
  * An IRotaryPowerSupply provides rotation to IRotaryPowerConsumers.
  * <ul>

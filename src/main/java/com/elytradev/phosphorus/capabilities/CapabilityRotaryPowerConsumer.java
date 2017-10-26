@@ -27,8 +27,8 @@
 
 package com.elytradev.phosphorus.capabilities;
 
-import com.elytradev.phosphorus.api.IRotaryPowerConsumer;
-import com.elytradev.phosphorus.api.impl.RotaryPowerConsumer;
+import com.elytradev.phosphorus.api.capabilities.IRotaryPowerConsumer;
+import com.elytradev.phosphorus.api.capabilities.impl.RotaryPowerConsumer;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;

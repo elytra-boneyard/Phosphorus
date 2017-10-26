@@ -4,7 +4,7 @@ ext {
 	group = 'com.elytradev'
 	projectName = 'Phosphorus'
 
-	useElytraVersionFormat = false
+	useElytraVersionFormat = true
 	version = '0.1.0'
 
 	concreteVersion = '0.3.2-SNAPSHOT'

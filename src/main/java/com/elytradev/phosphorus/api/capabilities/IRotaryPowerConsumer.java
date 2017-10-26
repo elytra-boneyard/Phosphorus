@@ -22,48 +22,20 @@
  * SOFTWARE.
  */
 
-package com.elytradev.phosphorus.api.impl;
+package com.elytradev.phosphorus.api.capabilities;
 
+/**
+ * Describes a device that has some kind of axle that can rotate, and does something important when that axle is rotated.
+ */
+public interface IRotaryPowerConsumer {
+	/**
+	 * Gets the torque load this machine places on the network.
+	 */
+	public float getRequiredTorque();
 
-import com.elytradev.phosphorus.api.IRotaryPowerConsumer;
-
-import java.util.ArrayList;
-
-public class RotaryPowerConsumer implements IRotaryPowerConsumer {
-	private ArrayList<Runnable> listeners = new ArrayList<>();
-	private float torqueRequired = 0;
-	private float bufferedRevolutions = 0;
-
-	public RotaryPowerConsumer() {}
-
-	@Override
-	public float getRequiredTorque() {
-		return torqueRequired;
-	}
-
-	@Override
-	public void supplyRevolutions(float revolutions) {
-		bufferedRevolutions += revolutions;
-	}
-
-	public void setRequiredTorque(float torque) {
-		torqueRequired = torque;
-	}
-
-	public void clearRevolutions() {
-		bufferedRevolutions = 0;
-	}
-
-	public float getBufferedRevolutions() {
-		return bufferedRevolutions;
-	}
-
-	public void setBufferedRevolutions(float revolutions) {
-		bufferedRevolutions = revolutions;
-	}
-
-
-	public void listen(Runnable r) {
-		listeners.add(r);
-	}
+	/**
+	 * Supply rotation to this energy. The caller guarantees that the supplied power is at {@link #getRequiredTorque} or
+	 * greater torque.
+	 */
+	public void supplyRevolutions(float revolutions);
 }

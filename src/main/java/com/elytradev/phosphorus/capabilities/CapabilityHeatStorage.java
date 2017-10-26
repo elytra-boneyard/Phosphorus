@@ -27,8 +27,8 @@
 
 package com.elytradev.phosphorus.capabilities;
 
-import com.elytradev.phosphorus.api.impl.HeatStorage;
-import com.elytradev.phosphorus.api.IHeatStorage;
+import com.elytradev.phosphorus.api.capabilities.impl.HeatStorage;
+import com.elytradev.phosphorus.api.capabilities.IHeatStorage;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.EnumFacing;

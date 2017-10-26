@@ -27,8 +27,8 @@
 
 package com.elytradev.phosphorus.capabilities;
 
-import com.elytradev.phosphorus.api.impl.BlankDismantleable;
-import com.elytradev.phosphorus.api.IDismantleable;
+import com.elytradev.phosphorus.api.capabilities.impl.BlankDismantleable;
+import com.elytradev.phosphorus.api.capabilities.IDismantleable;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;

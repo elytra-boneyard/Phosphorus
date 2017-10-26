@@ -25,23 +25,17 @@
  *
  */
 
-package com.elytradev.phosphorus.api.impl;
+package com.elytradev.phosphorus.api.capabilities;
 
-import com.elytradev.phosphorus.api.IConfigurable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumHand;
 
 /**
- * Literally does nothing. Don't use this.
+ * Provides a capability by which an object can be configured.
  */
-public class BlankConfigurable implements IConfigurable {
-	public BlankConfigurable()
-	{
-
-	}
-
-	@Override
-	public void configure(EntityPlayer player, float hitX, float hitY, float hitZ, EnumHand hand) {
-
-	}
+public interface IConfigurable {
+	/**
+	 * Configure an object, presumably using a wrench.
+	 */
+	void configure(EntityPlayer player, float hitX, float hitY, float hitZ, EnumHand hand);
 }

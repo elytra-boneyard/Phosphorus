@@ -27,8 +27,8 @@
 
 package com.elytradev.phosphorus.capabilities;
 
-import com.elytradev.phosphorus.api.impl.BlankConfigurable;
-import com.elytradev.phosphorus.api.IConfigurable;
+import com.elytradev.phosphorus.api.capabilities.impl.BlankConfigurable;
+import com.elytradev.phosphorus.api.capabilities.IConfigurable;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;

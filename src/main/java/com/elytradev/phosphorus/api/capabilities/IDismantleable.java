@@ -25,22 +25,10 @@
  *
  */
 
-package com.elytradev.phosphorus.api.impl;
+package com.elytradev.phosphorus.api.capabilities;
 
-import com.elytradev.phosphorus.api.IDismantleable;
 import net.minecraft.entity.player.EntityPlayer;
 
-/**
- * Literally does nothing. Don't use this.
- */
-public class BlankDismantleable implements IDismantleable {
-	public BlankDismantleable()
-	{
-
-	}
-
-	@Override
-	public void dismantle(EntityPlayer player) {
-
-	}
+public interface IDismantleable {
+	void dismantle(EntityPlayer player);
 }
